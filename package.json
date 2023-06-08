@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-storage",
+  "name": "@muhammadzadeh/nestjs-storage",
   "version": "0.0.1",
   "description": "NestJS Storage Module",
   "author": "Emir Muhammadzadeh",
