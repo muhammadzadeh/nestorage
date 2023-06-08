@@ -27,3 +27,7 @@ export type GcCloudStorageOption = {
   keyFilename: string;
   bucket: string;
 };
+
+export type AzureStorageOption = {
+  connectionString: string;
+};

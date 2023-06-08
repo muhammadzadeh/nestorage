@@ -1,3 +1,4 @@
+export * from './azure';
 export * from './base';
 export * from './gcloud';
 export * from './local';
