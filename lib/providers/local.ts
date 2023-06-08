@@ -20,9 +20,5 @@ export class LocalStorageProvider implements IStorageProvider {
     return fs.readFile(path);
   }
 
-  async delete(path: string, file: string): Promise<void> {
-    const files = await fs.readdir(path);
-    await Promise.all(files.filter(f => f.includes(file)).map(f => fs.rm(f)));
-  }
 }
 

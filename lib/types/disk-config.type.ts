@@ -8,9 +8,9 @@ export type LocalStorageOption = {
 };
 
 export type S3StorageOption = {
-  key: string;
+  accessKeyId: string;
   endpoint: string;
-  secret: string;
+  secretAccessKey: string;
   bucket: string;
   region: string;
 };

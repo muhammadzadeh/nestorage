@@ -3,11 +3,10 @@ export interface IStorageProvider{
         path: string,
         file: string,
         data: Buffer,
+        bucket: string,
       ): Promise<void>;
     
-      download(path: string): Promise<Buffer>;
-    
-      delete(path: string, file: string,): Promise<void>;
+      download(path: string, bucket: string): Promise<Buffer>;
     
       getName(): string;
 }
