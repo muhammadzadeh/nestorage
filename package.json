@@ -1,0 +1,67 @@
+{
+  "name": "@nestjs/storage",
+  "version": "0.0.1",
+  "description": "NestJS Storage Module",
+  "author": "Emir Muhammadzadeh",
+  "license": "MIT",
+  "url": "https://github.com/muhammadzadeh/nestjs-storage",
+  "scripts": {
+    "jest": "jest",
+    "build": "rimraf -rf dist && tsc -p ./tsconfig.lib.json",
+    "lint": "eslint 'lib/**/*.ts' --fix",
+    "prepublish:npm": "npm run build",
+    "publish:npm": "npm publish --access public",
+    "prepublish:next": "npm run build",
+    "publish:next": "npm publish --access public --tag next",
+    "test": "jest --config ./tests/jest-e2e.json --runInBand",
+    "prerelease": "npm run build",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-angular": "^9.1.1",
+    "@nestjs/common": "^9.4.2",
+    "@nestjs/core": "^9.4.2",
+    "@nestjs/platform-express": "^9.4.2",
+    "@nestjs/testing": "^9.4.2",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
+    "console-testing-library": "^0.3.1",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
+    "jest": "^28.0.8",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "reflect-metadata": "^0.1.13",
+    "release-it": "^15.11.0",
+    "rxjs": "^7.8.1",
+    "ts-jest": "^28.0.8",
+    "typescript": "^4.7.4"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^6.10.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -c .commitlintrc.json -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muhammadzadeh/nestjs-storage"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
