@@ -1,7 +1,9 @@
 export type StorageOption =
   | LocalStorageOption
   | S3StorageOption
-  | GcCloudStorageOption;
+  | R2StorageOption
+  | AzureStorageOption
+  | GCloudStorageOption;
 
 export type LocalStorageOption = {
   root: string;
@@ -23,7 +25,7 @@ export type R2StorageOption = {
   region: string;
 };
 
-export type GcCloudStorageOption = {
+export type GCloudStorageOption = {
   keyFilename: string;
   bucket: string;
 };

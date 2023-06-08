@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { GcCloudStorageOption } from '../types';
+import { GCloudStorageOption } from '../types';
 import { IStorageProvider } from './base';
 import { Storage } from '@google-cloud/storage';
 
 
 @Injectable()
-export class GcCloudStorageProvider implements IStorageProvider {
+export class GCloudStorageProvider implements IStorageProvider {
   private readonly storage: Storage;
 
-  constructor(private readonly options: GcCloudStorageOption) {
+  constructor(private readonly options: GCloudStorageOption) {
     this.storage = new Storage({
       keyFilename: options.keyFilename,
     });
   }
 
   getName(): string {
-    return 'gcloud';
+    return 'gcs';
   }
 
   async upload(
