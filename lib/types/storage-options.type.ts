@@ -13,7 +13,6 @@ export type S3StorageOption = {
   accessKeyId: string;
   endpoint: string;
   secretAccessKey: string;
-  bucket: string;
   region: string;
 };
 
@@ -21,13 +20,11 @@ export type R2StorageOption = {
   accessKeyId: string;
   endpoint: string;
   secretAccessKey: string;
-  bucket: string;
   region: string;
 };
 
 export type GCloudStorageOption = {
   keyFilename: string;
-  bucket: string;
 };
 
 export type AzureStorageOption = {
