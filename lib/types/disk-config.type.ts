@@ -15,6 +15,14 @@ export type S3StorageOption = {
   region: string;
 };
 
+export type R2StorageOption = {
+  accessKeyId: string;
+  endpoint: string;
+  secretAccessKey: string;
+  bucket: string;
+  region: string;
+};
+
 export type GcCloudStorageOption = {
   keyFilename: string;
   bucket: string;
