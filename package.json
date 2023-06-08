@@ -1,5 +1,5 @@
 {
-  "name": "@muhammadzadeh/nestjs-storage",
+  "name": "@nestjs/storage",
   "version": "0.0.1",
   "description": "NestJS Storage Module",
   "author": "Emir Muhammadzadeh",
@@ -46,18 +46,14 @@
   "peerDependencies": {
     "@nestjs/common": "^6.10.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
     "aws-sdk": "^2.1361.0",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "@azure/storage-blob": "^12.14.0",
+    "@google-cloud/storage": "^6.11.0"
   },
   "lint-staged": {
     "*.ts": [
       "prettier --write"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -c .commitlintrc.json -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
   },
   "repository": {
     "type": "git",
@@ -68,6 +64,7 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.14.0",
+    "aws-sdk": "^2.1361.0",
     "@google-cloud/storage": "^6.11.0"
   }
 }

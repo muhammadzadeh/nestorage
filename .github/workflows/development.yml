@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn install --frozen-lockfile
+      - run: npm i --frozen-lockfile
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: https://registry.npmjs.org
-      - run: yarn install --frozen-lockfile
-      - run: yarn publish
+      - run: npm i --frozen-lockfile
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
