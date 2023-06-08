@@ -4,13 +4,27 @@ import {
   Inject,
   Module,
   Provider,
-  Type,
 } from '@nestjs/common';
 
-import { STORAGE_MODULE_OPTIONS } from './storage.constants';
-import { StorageModuleOptions, StorageOptionsFactory } from './interfaces';
 import { ModuleRef } from '@nestjs/core';
-import { StorageModuleAsyncOptions } from './interfaces/storage-module-async-options';
+import { StorageModuleOptions } from './interfaces';
+import {
+  AzureStorageProvider,
+  GCloudStorageProvider,
+  LocalStorageProvider,
+  R2StorageProvider,
+  S3StorageProvider,
+} from './providers';
+import { STORAGE_MODULE_OPTIONS, STORAGE_TOKEN } from './storage.constants';
+import { StorageService } from './storage.service';
+import {
+  AzureStorageOption,
+  GCloudStorageOption,
+  LocalStorageOption,
+  R2StorageOption,
+  S3StorageOption,
+} from './types';
+
 @Global()
 @Module({})
 export class StorageCoreModule {
@@ -25,57 +39,40 @@ export class StorageCoreModule {
       provide: STORAGE_MODULE_OPTIONS,
       useValue: options,
     };
+    const storageProvider: Provider = {
+      provide: STORAGE_TOKEN,
+      useValue: this.registerProvider(options),
+    };
 
     return {
       module: StorageCoreModule,
-      providers: [storageModuleOptions],
+      providers: [storageModuleOptions, storageProvider, StorageService],
+      exports: [StorageService],
     };
   }
 
-  static forRootAsync(options: StorageModuleAsyncOptions): DynamicModule {
-    const asyncProviders = this.createAsyncProviders(options);
+  private static registerProvider(options: StorageModuleOptions) {
+    switch (options.provider) {
+      case 'local':
+        return new LocalStorageProvider(options.options as LocalStorageOption);
 
-    return {
-      module: StorageCoreModule,
-      imports: options.imports,
-      providers: [...asyncProviders],
-    };
-  }
+      case 'gcs':
+        return new GCloudStorageProvider(
+          options.options as GCloudStorageOption,
+        );
 
-  private static createAsyncProviders(
-    options: StorageModuleAsyncOptions,
-  ): Provider[] {
-    if (options.useFactory) {
-      return [this.createAsyncOptionsProvider(options)];
+      case 'azure':
+        return new AzureStorageProvider(options.options as AzureStorageOption);
+
+      case 's3':
+        return new S3StorageProvider(options.options as S3StorageOption);
+
+      case 'r2':
+        return new R2StorageProvider(options.options as R2StorageOption);
+
+      default:
+        return new LocalStorageProvider(options.options as LocalStorageOption);
     }
-    const useClass = options.useClass as Type<StorageOptionsFactory>;
-    return [
-      this.createAsyncOptionsProvider(options),
-      {
-        provide: useClass,
-        useClass,
-      },
-    ];
-  }
-
-  private static createAsyncOptionsProvider(
-    options: StorageModuleAsyncOptions,
-  ): Provider {
-    if (options.useFactory) {
-      return {
-        provide: STORAGE_MODULE_OPTIONS,
-        useFactory: options.useFactory,
-        inject: options.inject || [],
-      };
-    }
-
-    const inject = [options.useClass as Type<StorageOptionsFactory>];
-
-    return {
-      provide: STORAGE_MODULE_OPTIONS,
-      useFactory: async (optionsFactory: StorageOptionsFactory) =>
-        optionsFactory.createStorageOptions(),
-      inject,
-    };
   }
 }
+
