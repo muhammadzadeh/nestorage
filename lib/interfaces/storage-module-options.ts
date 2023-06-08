@@ -1,8 +1,8 @@
 import {
-  DiskConfigType,
-  DiskGCSConfigType,
-  DiskLocalConfigType,
-  DiskS3ConfigType,
+  StorageOption,
+  GcCloudStorageOption,
+  LocalStorageOption,
+  S3StorageOption,
   DiskType,
   DriverType,
 } from '../types';
@@ -14,21 +14,21 @@ export interface StorageModuleOptions {
 
 export interface StorageDiskConfig {
   driver: DriverType | string;
-  config: DiskConfigType;
+  config: StorageOption;
 }
 
 export interface AwsS3StorageDisk extends StorageDiskConfig {
   driver: DriverType.S3 | 's3';
-  config: DiskS3ConfigType;
+  config: S3StorageOption;
 }
 
 export interface LocalStorageDisk extends StorageDiskConfig {
   driver: DriverType.LOCAL | 'local';
-  config: DiskLocalConfigType;
+  config: LocalStorageOption;
 }
 
 export interface GoogleGcsStorageDisk extends StorageDiskConfig {
   driver: DriverType.GCS | 'gcs';
-  config: DiskGCSConfigType;
+  config: GcCloudStorageOption;
 }
 

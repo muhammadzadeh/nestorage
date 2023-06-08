@@ -1,14 +1,13 @@
-export type DiskConfigType =
-  | DiskLocalConfigType
-  | DiskS3ConfigType
-  | DiskGCSConfigType
-  | Record<string, any>;
+export type StorageOption =
+  | LocalStorageOption
+  | S3StorageOption
+  | GcCloudStorageOption;
 
-export type DiskLocalConfigType = {
+export type LocalStorageOption = {
   root: string;
 };
 
-export type DiskS3ConfigType = {
+export type S3StorageOption = {
   key: string;
   endpoint: string;
   secret: string;
@@ -16,7 +15,7 @@ export type DiskS3ConfigType = {
   region: string;
 };
 
-export type DiskGCSConfigType = {
+export type GcCloudStorageOption = {
   keyFilename: string;
   bucket: string;
 };
