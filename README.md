@@ -19,11 +19,11 @@ npm i --save @muhammadzadeh/nestorage
 ## How To
 
 - select your preferred provider and provide its configs
-  - [local](#local-example)
-  - [s3](#s3-example)
-  - [r2](#r2-example)
-  - [azure](#azure-example)
-  - [gcs](#google-cloud-example)
+  - [local](#local-storage-example)
+  - [s3](#s3-storage-example)
+  - [r2](#r2-storage-example)
+  - [azure](#azure-storage-example)
+  - [gcs](#google-cloud-storage-example)
 - inject StorageService
   - [StorageService](#storageservice)
 
@@ -177,6 +177,14 @@ export class MyClass {
 }
 ```
 
+## Todo
+
+- [ ] Add tests
+- [ ] Manage Buckets(create, delete, list)
+- [ ] Delete Object
+- [ ] Copy Object
+- [ ] Share Object
+
 ## Support
 
 nestorage is an MIT-licensed open source project. If this library is helpful, please click star to support it.
@@ -184,4 +192,3 @@ nestorage is an MIT-licensed open source project. If this library is helpful, pl
 ## License
 
 nestorage is MIT licensed.
-
