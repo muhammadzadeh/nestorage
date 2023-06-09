@@ -11,7 +11,7 @@ export class LocalStorageProvider implements IStorageProvider {
     return 'local';
   }
 
-  async upload(path: string, file: string, data: Buffer,  bucket: string,): Promise<void> {
+  async putObject(path: string, file: string, data: Buffer,  bucket: string,): Promise<void> {
     await fs.mkdir(path, { recursive: true });
     await fs.writeFile(`${this.options.root}/${bucket}/${path}/${file}`, data);
   }
