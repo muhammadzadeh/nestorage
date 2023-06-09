@@ -12,7 +12,7 @@ export class LocalStorageProvider implements IStorageProvider {
   }
 
   async putObject(path: string, file: string, data: Buffer,  bucket: string,): Promise<void> {
-    await fs.mkdir(path, { recursive: true });
+    await fs.mkdir(`${this.options.root}/${bucket}/${path}`, { recursive: true });
     await fs.writeFile(`${this.options.root}/${bucket}/${path}/${file}`, data);
   }
 
