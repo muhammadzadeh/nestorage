@@ -18,7 +18,7 @@ export class GCloudStorageProvider implements IStorageProvider {
     return 'gcs';
   }
 
-  async upload(
+  async putObject(
     path: string,
     file: string,
     data: Buffer,

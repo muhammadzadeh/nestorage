@@ -18,7 +18,7 @@ export class AzureStorageProvider implements IStorageProvider {
     return 'azure';
   }
 
-  async upload(
+  async putObject(
     path: string,
     file: string,
     data: Buffer,

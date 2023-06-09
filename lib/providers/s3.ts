@@ -21,7 +21,7 @@ export class S3StorageProvider implements IStorageProvider {
     return 's3';
   }
 
-  async upload(
+  async putObject(
     path: string,
     file: string,
     data: Buffer,

@@ -21,7 +21,7 @@ export class R2StorageProvider implements IStorageProvider {
     return 'r2';
   }
 
-  async upload(
+  async putObject(
     path: string,
     file: string,
     data: Buffer,

@@ -9,7 +9,7 @@ export class StorageService {
     @Inject(STORAGE_TOKEN) private readonly storageProvider: IStorageProvider,
   ) {}
 
-  getName(): string {
+  getProviderName(): string {
     return this.storageProvider.getName();
   }
 

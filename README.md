@@ -25,8 +25,9 @@ npm i --save @muhammadzadeh/nestorage
   - [azure](#azure-example)
   - [gcs](#google-cloud-example)
 - inject StorageService
+  - [StorageService](#storageservice)
 
-### Local Example
+### Local Storage Example
 
 ```typescript
 // app.module.ts
@@ -48,7 +49,7 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
 export class AppModule {}
 ```
 
-### S3 Example
+### S3 Storage Example
 
 ```typescript
 // app.module.ts
@@ -73,7 +74,7 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
 export class AppModule {}
 ```
 
-### R2 Example
+### R2 Storage Example
 
 ```typescript
 // app.module.ts
@@ -98,7 +99,7 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
 export class AppModule {}
 ```
 
-### Azure Example
+### Azure Storage Example
 
 ```typescript
 // app.module.ts
@@ -120,7 +121,7 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
 export class AppModule {}
 ```
 
-### Google Cloud Example
+### Google Cloud Storage Example
 
 ```typescript
 // app.module.ts
