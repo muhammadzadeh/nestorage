@@ -1,31 +1,43 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+<p  align="center">
+
+<a  href="http://nestjs.com/"  target="blank"><img  src="https://github-production-user-asset-6210df.s3.amazonaws.com/10474363/244793096-79f1d323-1808-4838-a0e1-cd5e23b18f91.svg"  width="500"  alt="Nestorage Logo"  /></a>
+
 </p>
 
-<p align="center">
-    NestJS Storage module, work with famous object storage like S3, R2, Azure, Google Cloud
+<p  align="center">
+
+NestJS Storage module, work with famous object storage like S3, R2, Azure, Google Cloud
+
 </p>
 
 ## Installation
 
 ```bash
-$ npm i --save @muhammadzadeh/nestjs-storage
+
+$  npm  i  --save  @muhammadzadeh/nestorage
+
 ```
 
 ## How To
-* select your prefered provider and provide its configs
-* inject StorageService 
+
+- select your prefered provider and provide its configs
+
+- inject StorageService
+
 ### Local Example
 
 ```typescript
 // app.module.ts
-import { Module } from '@nestjs/common'
-import { StorageModule } from '@muhammadzadeh/nestjs-storage';
+
+import { Module } from '@nestjs/common';
+
+import { StorageModule } from '@muhammadzadeh/nestorage';
 
 @Module({
   imports: [
     StorageModule.forRoot({
       provider: 'local',
+
       options: {
         root: 'ROOT_DIR',
       },
@@ -34,21 +46,28 @@ import { StorageModule } from '@muhammadzadeh/nestjs-storage';
 })
 export class AppModule {}
 ```
+
 ### S3 Example
 
 ```typescript
 // app.module.ts
-import { Module } from '@nestjs/common'
-import { StorageModule } from '@muhammadzadeh/nestjs-storage';
+
+import { Module } from '@nestjs/common';
+
+import { StorageModule } from '@muhammadzadeh/nestorage';
 
 @Module({
   imports: [
     StorageModule.forRoot({
       provider: 's3',
+
       options: {
         accessKeyId: 'ACCESS_KEY_ID',
+
         secretAccessKey: 'SECRET_ACCESS_KEY',
+
         endpoint: 'S3_ENDPOINT',
+
         region: 'auto',
       },
     }),
@@ -61,17 +80,23 @@ export class AppModule {}
 
 ```typescript
 // app.module.ts
-import { Module } from '@nestjs/common'
-import { StorageModule } from '@muhammadzadeh/nestjs-storage';
+
+import { Module } from '@nestjs/common';
+
+import { StorageModule } from '@muhammadzadeh/nestorage';
 
 @Module({
   imports: [
     StorageModule.forRoot({
       provider: 'r2',
+
       options: {
         accessKeyId: 'ACCESS_KEY_ID',
+
         secretAccessKey: 'SECRET_ACCESS_KEY',
+
         endpoint: 'CLOUDFLARE_R2_EXAMPLE',
+
         region: 'auto',
       },
     }),
@@ -79,17 +104,21 @@ import { StorageModule } from '@muhammadzadeh/nestjs-storage';
 })
 export class AppModule {}
 ```
+
 ### Azure Example
 
 ```typescript
 // app.module.ts
-import { Module } from '@nestjs/common'
-import { StorageModule } from '@muhammadzadeh/nestjs-storage';
+
+import { Module } from '@nestjs/common';
+
+import { StorageModule } from '@muhammadzadeh/nestorage';
 
 @Module({
   imports: [
     StorageModule.forRoot({
       provider: 'azure',
+
       options: {
         connectionString: 'CONNECTION_STRING ',
       },
@@ -98,17 +127,21 @@ import { StorageModule } from '@muhammadzadeh/nestjs-storage';
 })
 export class AppModule {}
 ```
+
 ### Google Cloud Example
 
 ```typescript
 // app.module.ts
-import { Module } from '@nestjs/common'
-import { StorageModule } from '@muhammadzadeh/nestjs-storage';
+
+import { Module } from '@nestjs/common';
+
+import { StorageModule } from '@muhammadzadeh/nestorage';
 
 @Module({
   imports: [
     StorageModule.forRoot({
       provider: 'gcs',
+
       options: {
         keyFilename: 'GOOGLE_KEY_FILE_NAME',
       },
@@ -117,22 +150,25 @@ import { StorageModule } from '@muhammadzadeh/nestjs-storage';
 })
 export class AppModule {}
 ```
+
 ### StorageService
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { StorageService } from "@muhammadzadeh/nestjs-storage";
+
+import { StorageService } from '@muhammadzadeh/nestorage';
 
 @Injectable()
 export class MyClass {
   constructor(private readonly storage: StorageService) {}
 }
-
 ```
+
 ## Support
 
-nestjs-storage is an MIT-licensed open source project. If this library is helpful, please click star to support it.
+nestorage is an MIT-licensed open source project. If this library is helpful, please click star to support it.
 
 ## License
 
-nestjs-storage is MIT licensed.
+nestorage is MIT licensed.
+

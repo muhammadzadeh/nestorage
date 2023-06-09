@@ -1,14 +1,14 @@
 {
-  "name": "@muhammadzadeh/nestjs-storage",
+  "name": "@muhammadzadeh/nestorage",
   "version": "0.0.6",
   "description": "NestJS Storage Module",
   "author": "Emir Muhammadzadeh",
   "license": "MIT",
-  "url": "https://github.com/muhammadzadeh/nestjs-storage",
-  "homepage": "https://github.com/muhammadzadeh/nestjs-storage",
+  "url": "https://github.com/muhammadzadeh/nestorage",
+  "homepage": "https://github.com/muhammadzadeh/nestorage",
   "repository": {
     "type": "git",
-    "url": "https://github.com/muhammadzadeh/nestjs-storage"
+    "url": "https://github.com/muhammadzadeh/nestorage"
   },
   "keywords": [
     "nestjs",
@@ -21,7 +21,7 @@
     "GcCloud"
   ],
   "bugs": {
-    "url": "https://github.com/muhammadzadeh/nestjs-storage/issues"
+    "url": "https://github.com/muhammadzadeh/nestorage/issues"
   },
   "scripts": {
     "jest": "jest",
