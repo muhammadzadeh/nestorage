@@ -8,13 +8,12 @@ export class R2StorageProvider implements IStorageProvider {
   private readonly storage: aws.S3;
 
   constructor(private readonly options: R2StorageOption) {
-
     this.storage = new aws.S3({
-        accessKeyId: options.accessKeyId,
-        secretAccessKey: options.secretAccessKey,
-        endpoint: options.endpoint,
-        s3ForcePathStyle: true,
-      });
+      accessKeyId: options.accessKeyId,
+      secretAccessKey: options.secretAccessKey,
+      endpoint: options.endpoint,
+      s3ForcePathStyle: true,
+    });
   }
 
   getName(): string {
@@ -22,23 +21,27 @@ export class R2StorageProvider implements IStorageProvider {
   }
 
   async putObject(
-    path: string,
-    file: string,
-    data: Buffer,
     bucket: string,
+    path: string,
+    fileName: string,
+    data: Buffer,
   ): Promise<void> {
     const params = {
       Bucket: bucket,
-      Key: `${path}/${file}`,
+      Key: `${path}/${fileName}`,
       Body: data,
     };
     await this.storage.upload(params).promise();
   }
 
-  async getObject(path: string, bucket: string): Promise<Buffer> {
+  async getObject(
+    bucket: string,
+    path: string,
+    fileName: string,
+  ): Promise<Buffer> {
     const params = {
       Bucket: bucket,
-      Key: path,
+      Key: `${path}/${fileName}`,
     };
 
     const file = await this.storage.getObject(params).promise();

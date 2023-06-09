@@ -1,12 +1,12 @@
-export interface IStorageProvider{
-    putObject(
-        path: string,
-        file: string,
-        data: Buffer,
-        bucket: string,
-      ): Promise<void>;
-    
-      getObject(path: string, bucket: string): Promise<Buffer>;
-    
-      getName(): string;
+export interface IStorageProvider {
+  putObject(
+    bucket: string,
+    path: string,
+    fileName: string,
+    data: Buffer,
+  ): Promise<void>;
+
+  getObject(bucket: string, path: string, fileName: string): Promise<Buffer>;
+
+  getName(): string;
 }

@@ -19,13 +19,13 @@ export class AzureStorageProvider implements IStorageProvider {
   }
 
   async putObject(
-    path: string,
-    file: string,
-    data: Buffer,
     bucket: string,
+    path: string,
+    fileName: string,
+    data: Buffer,
   ): Promise<void> {
     const storage = this.storage.getContainerClient(bucket);
-    const blockBlobClient = storage.getBlockBlobClient(`${path}/${file}`);
+    const blockBlobClient = storage.getBlockBlobClient(`${path}/${fileName}`);
     await blockBlobClient.upload(data, data.length);
   }
 
@@ -45,9 +45,13 @@ export class AzureStorageProvider implements IStorageProvider {
     });
   }
 
-  async getObject(path: string, bucket: string): Promise<Buffer> {
+  async getObject(
+    bucket: string,
+    path: string,
+    fileName: string,
+  ): Promise<Buffer> {
     const storage = this.storage.getContainerClient(bucket);
-    const blockBlobClient = storage.getBlockBlobClient(path);
+    const blockBlobClient = storage.getBlockBlobClient(`${path}/${fileName}`);
     const file = await blockBlobClient.download();
     const downloaded = await this.streamToBuffer(file.readableStreamBody);
     return downloaded;

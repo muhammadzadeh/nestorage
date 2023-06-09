@@ -1,8 +1,7 @@
+import { Storage } from '@google-cloud/storage';
 import { Injectable } from '@nestjs/common';
 import { GCloudStorageOption } from '../types';
 import { IStorageProvider } from './base';
-import { Storage } from '@google-cloud/storage';
-
 
 @Injectable()
 export class GCloudStorageProvider implements IStorageProvider {
@@ -19,17 +18,23 @@ export class GCloudStorageProvider implements IStorageProvider {
   }
 
   async putObject(
-    path: string,
-    file: string,
-    data: Buffer,
     bucket: string,
+    path: string,
+    fileName: string,
+    data: Buffer,
   ): Promise<void> {
-    const created_file = this.storage.bucket(bucket).file(`${path}/${file}`);
+    const created_file = this.storage
+      .bucket(bucket)
+      .file(`${path}/${fileName}`);
     await created_file.save(data);
   }
 
-  async getObject(path: string, bucket: string): Promise<Buffer> {
-    const file = this.storage.bucket(bucket).file(path);
+  async getObject(
+    bucket: string,
+    path: string,
+    fileName: string,
+  ): Promise<Buffer> {
+    const file = this.storage.bucket(bucket).file(`${path}/${fileName}`);
     const [content] = await file.download();
     return content;
   }

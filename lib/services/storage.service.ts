@@ -14,16 +14,16 @@ export class StorageService {
   }
 
   async putObject(
-    path: string,
-    file: string,
-    data: Buffer,
     bucket: string,
+    path: string,
+    fileName: string,
+    data: Buffer,
   ): Promise<void> {
-    await this.storageProvider.putObject(path, file, data, bucket);
+    await this.storageProvider.putObject(bucket, path, fileName, data);
   }
 
-  async getObject(path: string, bucket: string): Promise<Buffer> {
-    return await this.storageProvider.getObject(path, bucket);
+  async getObject(bucket: string, path: string, fileName: string): Promise<Buffer> {
+    return await this.storageProvider.getObject(bucket, path, fileName);
   }
 }
 
