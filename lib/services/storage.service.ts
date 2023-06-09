@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 
-import { IStorageProvider } from './providers';
-import { STORAGE_TOKEN } from './storage.constants';
+import { IStorageProvider } from '../providers';
+import { STORAGE_TOKEN } from '../storage.constants';
 
 @Injectable()
 export class StorageService {

@@ -11,13 +11,13 @@ export class LocalStorageProvider implements IStorageProvider {
     return 'local';
   }
 
-  async upload(path: string, file: string, data: Buffer): Promise<void> {
+  async upload(path: string, file: string, data: Buffer,  bucket: string,): Promise<void> {
     await fs.mkdir(path, { recursive: true });
-    await fs.writeFile(`${path}/${file}`, data);
+    await fs.writeFile(`${this.options.root}/${bucket}/${path}/${file}`, data);
   }
 
-  download(path: string): Promise<Buffer> {
-    return fs.readFile(path);
+  download(path: string,  bucket: string,): Promise<Buffer> {
+    return fs.readFile(`${this.options.root}/${bucket}/${path}`);
   }
 
 }

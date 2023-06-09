@@ -16,7 +16,7 @@ import {
   S3StorageProvider,
 } from './providers';
 import { STORAGE_MODULE_OPTIONS, STORAGE_TOKEN } from './storage.constants';
-import { StorageService } from './storage.service';
+import { StorageService } from './services';
 import {
   AzureStorageOption,
   GCloudStorageOption,

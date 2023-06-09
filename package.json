@@ -1,10 +1,28 @@
 {
-  "name": "@muhammadzadeh/storage",
-  "version": "0.0.1",
+  "name": "@muhammadzadeh/nestjs-storage",
+  "version": "0.0.4",
   "description": "NestJS Storage Module",
   "author": "Emir Muhammadzadeh",
   "license": "MIT",
   "url": "https://github.com/muhammadzadeh/nestjs-storage",
+  "homepage": "https://github.com/muhammadzadeh/nestjs-storage",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muhammadzadeh/nestjs-storage"
+  },
+  "keywords": [
+    "nestjs",
+    "object-storage",
+    "S3",
+    "R2",
+    "MINIO",
+    "Azure",
+    "GCS",
+    "GcCloud"
+  ],
+  "bugs": {
+    "url": "https://github.com/muhammadzadeh/nestjs-storage/issues"
+  },
   "scripts": {
     "jest": "jest",
     "build": "rimraf -rf dist && tsc -p ./tsconfig.lib.json",
@@ -54,10 +72,6 @@
     "*.ts": [
       "prettier --write"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/muhammadzadeh/nestjs-storage"
   },
   "publishConfig": {
     "access": "public"
