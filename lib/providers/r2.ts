@@ -23,7 +23,6 @@ export class R2StorageProvider implements IStorageProvider {
   async createBucket(bucket: string): Promise<void> {
     const params = {
       Bucket: bucket,
-      region: this.options.region,
     };
     await this.storage.createBucket(params).promise();
   }
