@@ -20,13 +20,6 @@ export class R2StorageProvider implements IStorageProvider {
     return 'r2';
   }
 
-  async createBucket(bucket: string): Promise<void> {
-    const params = {
-      Bucket: bucket,
-    };
-    await this.storage.createBucket(params).promise();
-  }
-
   async putObject(
     bucket: string,
     path: string,
@@ -38,7 +31,6 @@ export class R2StorageProvider implements IStorageProvider {
       Key: `${path}/${fileName}`,
       Body: data,
     };
-    await this.createBucket(bucket);
     await this.storage.upload(params).promise();
   }
 
