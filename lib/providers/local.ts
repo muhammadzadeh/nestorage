@@ -16,7 +16,7 @@ export class LocalStorageProvider implements IStorageProvider {
     await fs.writeFile(`${this.options.root}/${bucket}/${path}/${file}`, data);
   }
 
-  download(path: string,  bucket: string,): Promise<Buffer> {
+  getObject(path: string,  bucket: string,): Promise<Buffer> {
     return fs.readFile(`${this.options.root}/${bucket}/${path}`);
   }
 

@@ -35,7 +35,7 @@ export class S3StorageProvider implements IStorageProvider {
     await this.storage.upload(params).promise();
   }
 
-  async download(path: string, bucket: string): Promise<Buffer> {
+  async getObject(path: string, bucket: string): Promise<Buffer> {
     const params = {
       Bucket: bucket,
       Key: path,

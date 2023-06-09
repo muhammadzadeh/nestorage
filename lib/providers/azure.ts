@@ -45,7 +45,7 @@ export class AzureStorageProvider implements IStorageProvider {
     });
   }
 
-  async download(path: string, bucket: string): Promise<Buffer> {
+  async getObject(path: string, bucket: string): Promise<Buffer> {
     const storage = this.storage.getContainerClient(bucket);
     const blockBlobClient = storage.getBlockBlobClient(path);
     const file = await blockBlobClient.download();

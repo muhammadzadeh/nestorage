@@ -1,12 +1,12 @@
 export interface IStorageProvider{
-    upload(
+    putObject(
         path: string,
         file: string,
         data: Buffer,
         bucket: string,
       ): Promise<void>;
     
-      download(path: string, bucket: string): Promise<Buffer>;
+      getObject(path: string, bucket: string): Promise<Buffer>;
     
       getName(): string;
 }

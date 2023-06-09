@@ -13,17 +13,17 @@ export class StorageService {
     return this.storageProvider.getName();
   }
 
-  async upload(
+  async putObject(
     path: string,
     file: string,
     data: Buffer,
     bucket: string,
   ): Promise<void> {
-    await this.storageProvider.upload(path, file, data, bucket);
+    await this.storageProvider.putObject(path, file, data, bucket);
   }
 
-  async download(path: string, bucket: string): Promise<Buffer> {
-    return await this.storageProvider.download(path, bucket);
+  async getObject(path: string, bucket: string): Promise<Buffer> {
+    return await this.storageProvider.getObject(path, bucket);
   }
 }
 

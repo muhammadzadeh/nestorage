@@ -28,7 +28,7 @@ export class GCloudStorageProvider implements IStorageProvider {
     await created_file.save(data);
   }
 
-  async download(path: string, bucket: string): Promise<Buffer> {
+  async getObject(path: string, bucket: string): Promise<Buffer> {
     const file = this.storage.bucket(bucket).file(path);
     const [content] = await file.download();
     return content;
