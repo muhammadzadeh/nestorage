@@ -13,15 +13,17 @@ NestJS Storage module, work with famous object storage like S3, R2, Azure, Googl
 ## Installation
 
 ```bash
-
-$  npm  i  --save  @muhammadzadeh/nestorage
-
+npm i --save @muhammadzadeh/nestorage
 ```
 
 ## How To
 
-- select your prefered provider and provide its configs
-
+- select your preferred provider and provide its configs
+  - [local](#local-example)
+  - [s3](#s3-example)
+  - [r2](#r2-example)
+  - [azure](#azure-example)
+  - [gcs](#google-cloud-example)
 - inject StorageService
 
 ### Local Example
@@ -37,7 +39,6 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
   imports: [
     StorageModule.forRoot({
       provider: 'local',
-
       options: {
         root: 'ROOT_DIR',
       },
@@ -60,14 +61,10 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
   imports: [
     StorageModule.forRoot({
       provider: 's3',
-
       options: {
         accessKeyId: 'ACCESS_KEY_ID',
-
         secretAccessKey: 'SECRET_ACCESS_KEY',
-
         endpoint: 'S3_ENDPOINT',
-
         region: 'auto',
       },
     }),
@@ -89,14 +86,10 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
   imports: [
     StorageModule.forRoot({
       provider: 'r2',
-
       options: {
         accessKeyId: 'ACCESS_KEY_ID',
-
         secretAccessKey: 'SECRET_ACCESS_KEY',
-
         endpoint: 'CLOUDFLARE_R2_EXAMPLE',
-
         region: 'auto',
       },
     }),
@@ -118,7 +111,6 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
   imports: [
     StorageModule.forRoot({
       provider: 'azure',
-
       options: {
         connectionString: 'CONNECTION_STRING ',
       },
@@ -141,7 +133,6 @@ import { StorageModule } from '@muhammadzadeh/nestorage';
   imports: [
     StorageModule.forRoot({
       provider: 'gcs',
-
       options: {
         keyFilename: 'GOOGLE_KEY_FILE_NAME',
       },
@@ -171,4 +162,3 @@ nestorage is an MIT-licensed open source project. If this library is helpful, pl
 ## License
 
 nestorage is MIT licensed.
-
