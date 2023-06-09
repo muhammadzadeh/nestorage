@@ -146,13 +146,34 @@ export class AppModule {}
 ### StorageService
 
 ```typescript
-import { Injectable } from '@nestjs/common';
-
+import { Injectable, StreamableFile } from '@nestjs/common';
 import { StorageService } from '@muhammadzadeh/nestorage';
 
 @Injectable()
 export class MyClass {
   constructor(private readonly storage: StorageService) {}
+
+  async uploadFile(file: Express.Multer.File) {
+    await this.storage.putObject(
+      'bucket',
+      'path/to/sub',
+      'my-file1.png',
+      file.buffer,
+    );
+  }
+
+  async DownloadFile() {
+    const buffer = await this.storage.getObject(
+      'bucket',
+      'path/to/sub',
+      'my-file.png',
+    );
+    return new StreamableFile(buffer, {
+      type: 'png',
+      length: buffer.length,
+      disposition: `attachment; filename="my-file.png"`,
+    });
+  }
 }
 ```
 
@@ -163,3 +184,4 @@ nestorage is an MIT-licensed open source project. If this library is helpful, pl
 ## License
 
 nestorage is MIT licensed.
+
