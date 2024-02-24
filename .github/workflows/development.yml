@@ -13,6 +13,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm i --frozen-lockfile
   publish-npm:
+    environment: development
     needs: build
     runs-on: ubuntu-latest
     steps:
