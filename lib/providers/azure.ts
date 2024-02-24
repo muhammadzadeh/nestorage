@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { BlobServiceClient } from '@azure/storage-blob';
 import { Injectable } from '@nestjs/common';
 import { AzureStorageOption } from '../types';
