@@ -1,6 +1,6 @@
 {
-  "name": "@nester/nestorage",
-  "version": "0.0.15",
+  "name": "@muhammadzadeh/nestorage",
+  "version": "0.0.16",
   "description": "NestJS Storage Module",
   "author": "Emir Muhammadzadeh",
   "license": "MIT",
@@ -61,7 +61,7 @@
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
-    "@nestjs/common": "^6.10.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
+    "@nestjs/common": "^6.10.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "reflect-metadata": "^0.1.13"
   },
   "lint-staged": {
