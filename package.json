@@ -1,6 +1,6 @@
 {
   "name": "@muhammadzadeh/nestorage",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "description": "NestJS Storage Module",
   "author": "Emir Muhammadzadeh",
   "license": "MIT",
